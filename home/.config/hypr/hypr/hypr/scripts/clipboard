@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+items_list="\t\tClear history\n$(cliphist list)"
+seleted=$(
+  echo -e "${items_list[@]}" | rofi -dmenu
+)
+
+if [[ "$seleted" =~ "Clear history" ]]; then
+  cliphist wipe
+  exit 0
+else
+  cliphist decode <<<"$seleted" | wl-copy
+  exit 0
+fi

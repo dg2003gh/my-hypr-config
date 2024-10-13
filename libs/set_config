@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+base_repo_path="./home"
+
+GET_CONFIGS "$conf_file"
+
+shopt -s dotglob
+
+IFS=$'\n'
+echo -e "This action will overwrite the following files and directories:\n${to_copy[*]}\n Are you sure? [Y/N] "
+read -r response
+
+if [[ "${response^^}" = "Y" ]]; then
+  if cp -r "$base_repo_path/"* "$HOME"; then
+    echo -e "\033[32m[Success]\033[0m: All files were copied!"
+  else
+    echo -e "\033[31m[Failed]\033[0m: Files were not copied!"
+  fi
+fi

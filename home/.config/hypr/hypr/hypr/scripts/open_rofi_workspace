@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ 'hyprctl workspaces |grep "windows: 0"' ]]; then
+  if read -rsn1; then
+    rofi -dmenu
+  fi
+fi

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+base_repo_path="./home/"
+
+GET_CONFIGS "$conf_file"
+
+for path in "${to_copy[@]}"; do
+  path="$(eval echo "$path")" # Validate paths globbing.
+  repo_path="${base_repo_path}${path#"$HOME/"}"
+
+  ! [[ -d "$repo_path" ]] &&
+    { mkdir -p "$repo_path"; }
+
+  if cp -r "$path" "$repo_path" 2>/dev/null; then
+    echo -e "\033[32m[Success]\033[0m: $path copied to repository Path ($repo_path)."
+  else
+    echo -e "\033[31m[Failed]\033[0m: to copy $path to repository Path ($repo_path)."
+  fi
+done

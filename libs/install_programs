@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+GET_CONFIGS "$conf_file"
+
+[[ "${programs_config[install]}" == false ]] && {
+  echo "Install programs? No. "
+  exit 0
+}
+
+if type -p pacman; then
+  pacman -Syu "${programs_config[pacman]}"
+else
+  echo -e "\033[31m[Failed]\033[0m: are you using a Arch based distro?"
+fi
+
+if type -p yay; then
+  yay -Syu "${programs_config[aur]}"
+elif type -p pikaur; then
+  pikaur -Syu "${programs_config[aur]}"
+else
+  echo -e "\033[31m[Failed]\033[0m: are you using a Arch based distro?"
+fi

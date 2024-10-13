@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+source libs/utils
+
+conf_file="$1"
+conf_file="${conf_file:=mhc.conf}"
+
+options=(
+  'Default install (conf and programs)'
+  'Set hyprland conf only'
+  'Install programs only'
+  'Get my current conf'
+  'Exit'
+)
+PS3="Select the desired option => "
+
+select option in "${options[@]}"; do
+  case "${REPLY}" in
+  1)
+    . libs/set_config libs/install_programs
+    ;;
+  2)
+    . libs/set_config
+    ;;
+  3)
+    . libs/install_programs
+    ;;
+  4)
+    . libs/get_config
+    ;;
+  5)
+    break
+    ;;
+  *) echo "*** Invalid option!" ;;
+  esac
+done

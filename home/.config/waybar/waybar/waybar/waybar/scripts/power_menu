@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+declare -A options=(
+  ["  Sair"]="hyprctl dispatch exit"
+  ["  Desligar"]="systemctl poweroff --now"
+  ["  Reiniciar"]="reboot"
+  [" Suspender"]="systemctl suspend"
+  ["  Hibernar"]="systemctl hibernate"
+)
+
+choose=$(echo "  Sair|  Desligar|  Reiniciar| Suspender|   Hibernar" | rofi -sep "|" -dmenu -i)
+
+exec ${options[$choose]}

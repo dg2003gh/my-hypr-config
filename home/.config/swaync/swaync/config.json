@@ -1,0 +1,120 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+
+  "positionX": "right",
+  "positionY": "top",
+  "control-center-positionX": "right",
+  "control-center-positionY": "top",
+  "control-center-margin-top": 5,
+  "control-center-margin-bottom": 5,
+  "control-center-margin-right": 5,
+  "control-center-margin-left": 5,
+  "control-center-width": 450,
+  "control-center-height": 1040,
+  "fit-to-screen": false,
+
+  "layer": "overlay",
+  "cssPriority": "user",
+  "notification-icon-size": 64,
+  "notification-body-image-height": 64,
+  "notification-body-image-width": 64,
+  "timeout": 3,
+  "timeout-low": 2,
+  "timeout-critical": 0,
+  "notification-window-width": 500,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 100,
+  "hide-on-clear": true,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+
+  "widgets": [
+ 	"dnd",
+ 	"inhibitors",
+ 	"volume",
+ 	"backlight",
+ 	"mpris",
+ 	"title",
+ 	"notifications"
+  ],
+  "widget-config": {
+    "menubar#label": {
+      "menu#power-buttons": {
+        "label": "⏻",
+        "position": "right",
+        "actions": [
+          {
+            "label": " Bloquear",
+            "command": "swaync-client -t -sw && swaylock -f"
+          },
+          {
+            "label": " Salir",
+            "command": "swaync-client -t -sw && swaymsg exit"
+          },
+          {
+            "label": " Suspender",
+            "command": "swaync-client -t -sw && loginctl suspend"
+          },
+          {
+            "label": " Reboot",
+            "command": "swaync-client -t -sw && doas reboot"
+          },
+          {
+            "label": "⏻ Shut down",
+            "command": "swaync-client -t -sw && doas shutdown"
+          }
+        ]
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "直",
+          "command": "iwgtk"
+        },
+        {
+          "label": "",
+          "command": "blueman-manager"
+        }
+      ]
+    },
+    "buttons#topbar-buttons": {
+        "position": "left",
+        "actions": [
+          {
+            "label": "",
+            "command": "swaync-client -t -sw && grim -t png -l 1 -g \"$(slurp)\" - | swappy -f -"
+          }
+        ]
+      }
+    },
+    "inhibitors": {
+      "text": "Inibidores",
+      "button-text": "Limpat tudo",
+      "clear-all-button": true
+    },
+    "title": {
+      "text": "Notificações",
+      "clear-all-button": true,
+      "button-text": "Limpar tudo"
+    },
+    "label": {
+    "max-lines": 5,
+    "text": "Controles"
+    },
+    "dnd": {
+      "text": "Não pertube"
+    },
+    "mpris": {
+      "image-size": 128,
+      "image-radius": 8
+    },
+    "volume": {
+      "label": " "
+    },
+   "backlight": {
+      "label": " ",
+      "device": "intel_backlight"
+    }
+   }
+}

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+DIR="$1"
+
+if [[ -z "$DIR" ]]; then
+  echo "must provide a directory."
+  exit 1
+fi
+
+wallpapers=($(find "$DIR" -name '*' -exec file {} \; | grep -oP '^.+: \w+ image' | cut -d':' -f1))
+
+echo "${wallpapers[@]}"
+
+selected=$(shuf -i 0-${#wallpapers[@]} -n 1)
+
+swww img "${wallpapers[$selected]}"
