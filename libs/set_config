@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-base_repo_path="./home"
+base_repo_path="."
 
 GET_CONFIGS "$conf_file"
 
@@ -11,9 +11,14 @@ echo -e "This action will overwrite the following files and directories:\n${to_c
 read -r response
 
 if [[ "${response^^}" = "Y" ]]; then
-  if cp -r "$base_repo_path/"* "$HOME"; then
-    echo -e "\033[32m[Success]\033[0m: All files were copied!"
-  else
-    echo -e "\033[31m[Failed]\033[0m: Files were not copied!"
-  fi
+  for path in "${to_copy[@]}"; do
+    path="$(eval echo "$path")" # Validate paths globbing.
+    repo_path="${base_repo_path}${path//"$USER/"/}"
+
+    if cp -fR "$repo_path"* "$path"; then # I already told this joke :)
+      echo -e "\033[32m[Success]\033[0m: $repo_path copied to $path"
+    else
+      echo -e "\033[31m[Failed]\033[0m: to copy from $repo_path to $path"
+    fi
+  done
 fi
