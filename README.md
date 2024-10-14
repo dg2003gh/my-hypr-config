@@ -57,18 +57,13 @@ aur - list of packages to be installed with aur package manager.
 > [!TIP]
 > Use ´:set syntax=toml´ to make the file have colors.
 
-```
-
 ## How to install
 
 ```
-
 git clone git@github.com:dg2003gh/my-hypr-config.git
 cd my-hypr-config
 chmod +x my_hypr_config
 ./my_hypr_config
-
 ```
 
 !["ambient screenshot"](./screenshots/ambient.png)
-```
