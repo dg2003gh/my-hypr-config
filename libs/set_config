@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-base_repo_path="."
-
 GET_CONFIGS "$conf_file"
 
 shopt -s dotglob
