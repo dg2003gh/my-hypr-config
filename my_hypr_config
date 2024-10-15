@@ -5,6 +5,8 @@ source libs/utils
 conf_file="$1"
 conf_file="${conf_file:=mhc.conf}"
 
+base_repo_path="./dirs"
+
 options=(
   'Default install (conf and programs)'
   'Set hyprland conf only'
