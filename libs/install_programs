@@ -18,7 +18,7 @@ else
 fi
 
 if [[ -n "${finded_aur_managers[0]}" ]]; then
-  ${finded_aur_managers//*\//} -Syu ${aur_list}
+  ${finded_aur_managers[0]//*\//} -Syu ${aur_list}
 else
   echo -e "\033[31m[Failed]\033[0m: Do you have an AUR package manager installed?"
 fi
