@@ -4,6 +4,7 @@ GET_CONFIGS "$conf_file"
 
 pacman_list="${programs_config[pacman]}"
 aur_list="${programs_config[aur]}"
+finded_aur_managers=("$(type -p ${programs_config[aur_managers]})")
 
 [[ "${programs_config[install]}" == false ]] && {
   echo "Install programs? No. "
@@ -16,12 +17,8 @@ else
   echo -e "\033[31m[Failed]\033[0m: are you using a Arch based distro?"
 fi
 
-if type -p yay; then
-  yay -Syu ${aur_list[@]}
-elif type -p pikaur; then
-  pikaur -Syu ${aur_list[@]}
-elif type -p paru; then
-  paru -Syu ${aur_list[@]}
+if [[ -n "${finded_aur_managers[0]}" ]]; then
+  ${finded_aur_managers//*\//} -Syu ${aur_list}
 else
-  echo -e "\033[31m[Failed]\033[0m: are you using a Arch based distro?"
+  echo -e "\033[31m[Failed]\033[0m: Do you have an AUR package manager installed?"
 fi
