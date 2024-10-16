@@ -20,6 +20,8 @@ if type -p yay; then
   yay -Syu ${aur_list[@]}
 elif type -p pikaur; then
   pikaur -Syu ${aur_list[@]}
+elif type -p paru; then
+  paru -Syu ${aur_list[@]}
 else
   echo -e "\033[31m[Failed]\033[0m: are you using a Arch based distro?"
 fi
