@@ -5,16 +5,13 @@ source libs/utils
 declare -A programs_config
 to_copy=()
 
-pacman_list="${programs_config[pacman]}"
-aur_list="${programs_config[aur]}"
-
 conf_file="$1"
 conf_file="${conf_file:=mhc.conf}"
 
 base_repo_path="./dirs"
 
 options=(
-  'Default install (conf and programs)'
+  'Default install (programs and config)'
   'Set hyprland conf only'
   'Install programs only'
   'Get my current conf'
@@ -25,7 +22,7 @@ PS3="Select the desired option => "
 select option in "${options[@]}"; do
   case "${REPLY}" in
   1)
-    . libs/set_config && . libs/install_programs
+    . libs/install_programs && . libs/set_config
     ;;
   2)
     . libs/set_config

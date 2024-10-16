@@ -13,6 +13,8 @@ if [[ "${response^^}" = "Y" ]]; then
     path="$(eval echo "$path")" # Validate paths globbing.
     repo_path="${base_repo_path}${path//"$USER/"/}"
 
+    ! [[ -d "$path" ]] && ! [[ -e "$path" ]] && { mkdir -p "$path"; }
+
     if cp -fR "$repo_path"* "$path"; then # I already told this joke :)
       echo -e "\033[32m[Success]\033[0m: $repo_path copied to $path"
     else

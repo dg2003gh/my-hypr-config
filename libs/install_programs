@@ -2,6 +2,9 @@
 
 GET_CONFIGS "$conf_file"
 
+pacman_list="${programs_config[pacman]}"
+aur_list="${programs_config[aur]}"
+
 [[ "${programs_config[install]}" == false ]] && {
   echo "Install programs? No. "
   exit 0
