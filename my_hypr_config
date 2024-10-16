@@ -2,6 +2,12 @@
 
 source libs/utils
 
+declare -A programs_config
+to_copy=()
+
+pacman_list="${programs_config[pacman]}"
+aur_list="${programs_config[aur]}"
+
 conf_file="$1"
 conf_file="${conf_file:=mhc.conf}"
 
@@ -19,7 +25,7 @@ PS3="Select the desired option => "
 select option in "${options[@]}"; do
   case "${REPLY}" in
   1)
-    . libs/set_config libs/install_programs
+    . libs/set_config && . libs/install_programs
     ;;
   2)
     . libs/set_config
