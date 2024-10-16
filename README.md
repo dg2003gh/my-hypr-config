@@ -14,6 +14,7 @@ You can see here all the dependencies if you want to install them manually:
 | aur package manager |
 | hyprland |
 | kitty |
+| curl|
 | swaync |
 | rofi-wayland |
 | tuigreet |
