@@ -1,25 +1,22 @@
 #!/usr/bin/env bash
 
 function GET_CONFIGS() {
-  declare -A programs_config
-
   file="$1"
-  conf_opt=""
+  config_opt=""
 
   while read -r line; do
-    [[ "$line" =~ ^\# ]] && { continue; }
-
     if [[ "$line" =~ \[([^\]]+)\] ]]; then
-      conf_opt="$line"
+      config_opt="$line"
       continue
     fi
 
-    case "$conf_opt" in
+    case "$config_opt" in
     "[files_to_copy]")
       to_copy+=("$line")
       ;;
     "[install_programs]")
-      programs_config["${line//=*/}"]="${line//*=/}"
+      line="${line//\"/}"
+      programs_config["${line//\=*/}"]="${line//*=/}"
       ;;
 
     esac
