@@ -22,3 +22,14 @@ function GET_CONFIGS() {
     esac
   done <"$file"
 }
+
+function CHECK_EXIST() {
+  from="$1"
+  dist="$2"
+
+  if [[ -d "$from" ]] && ! [[ -d "$dist" ]]; then
+    mkdir -p "$dist"
+  elif [[ -f "$from" ]] && ! [[ -f "$dist" ]]; then
+    : >"$dist"
+  fi
+}

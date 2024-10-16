@@ -7,7 +7,7 @@ for path in "${to_copy[@]}"; do
   repo_path="${base_repo_path}${path//"$USER/"/}"
   repo_path="${repo_path%/*}"
 
-  [[ -e "$path" ]] && { mkdir -p "$repo_path"; }
+  CHECK_EXIST "$path" "$repo_path"
 
   if cp -fR "$path"* "$repo_path"; then # Fr means french ;) - (force Recursively)
     echo -e "\033[32m[Success]\033[0m: $path copied to repository Path ($repo_path)."
