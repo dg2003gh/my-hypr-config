@@ -15,7 +15,8 @@ if [[ "${response^^}" = "Y" ]]; then
 
     CHECK_EXIST "$repo_path" "$path"
 
-    if cp -fR "$repo_path"* "$path"; then # I already told this joke :)
+    #FIXME: is not a good idea cp with sudo.
+    if sudo cp -fR "$repo_path"* "$path"; then # I already told this joke :)
       echo -e "\033[32m[Success]\033[0m: $repo_path copied to $path"
     else
       echo -e "\033[31m[Failed]\033[0m: to copy from $repo_path to $path"
