@@ -3,13 +3,13 @@
 My Hyprland config on Archlinux. Clone this repo and run 'my_hypr_config' like:
 
 > [!IMPORTANT]
-> You must be in Arch based distro and have a Aur package manager.
+> You must be in Arch linux based distro and have a Aur package manager.
 
 > [!CAUTION]
 > In order to use Automated programs installation, check if your AUR package manager is on mhc.conf scan list.
 > Currently only pikaur, yay and paru is on the list.
 
-## Dependencies [Important]
+## Important dependencies and things to know before start.
 
 You must have oh-my-zsh and some plugins installed!
 Please checkout their website ![oh-my-zsh website](https://ohmyz.sh/)
@@ -22,6 +22,25 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
+```
+
+After install greetd. Please, make sure you have enabled it and disable current login manager. Like:
+
+```
+systemctl disable sddm # As exemple
+systemctl enable greetd
+
+```
+
+Also, Edit its file with you user. Like:
+
+```
+nvim /etc/greetd/config.toml
+
+13 The user to run the command as. The privileges this user must have depends
+14 # on the greeter. A graphical greeter may for example require the user to be
+15 # in the `video` group.
+16 user = "dg2003" #CHANGE HERE
 ```
 
 You can see here all the dependencies if you want to install them manually:
@@ -78,10 +97,24 @@ aur - list of packages to be installed with aur package manager.
 ## How to install
 
 ```
+
 git clone git@github.com:dg2003gh/my-hypr-config.git
 cd my-hypr-config
 chmod +x my_hypr_config
 ./my_hypr_config
+
 ```
 
 !["ambient screenshot"](./screenshots/ambient.png)
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
