@@ -95,15 +95,3 @@ chmod +x my_hypr_config
 ```
 
 !["ambient screenshot"](./screenshots/ambient.png)
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
