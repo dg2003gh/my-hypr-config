@@ -44,31 +44,20 @@ nvim /etc/greetd/config.toml
 ```
 
 You can see here all the dependencies if you want to install them manually:
-| Dependecies |
-| ----------------------- |
-| aur package manager |
-| hyprland |
-| kitty |
-| curl|
-| swaync |
-| rofi-wayland |
-| greetd|
-| tuigreet |
-| nvim |
-| thunar |
-| waybar |
-| zsh |
-| swww |
-| blueman |
-| pavucontrol |
-| noto-fonts-cjk |
-| udiskie |
-| flameshot-git |
-| greetd-tuigreet-git |
-| minfetch |
-| bibata-cursor-theme-bin |
-| jump |
-| ttf-firacode-nerd |
+| Dependecies | |
+| ----------------------- |---|
+| aur package manager | waybar |
+| hyprland | zsh |
+| kitty | swww |
+| curl| blueman |
+| swaync | rofi-wayland |
+| greetd| tuigreet |
+| nvim | thunar |
+| pavucontrol | noto-fonts-cjk |
+| udiskie | flameshot-git |
+| greetd-tuigreet-git | minfetch |
+| bibata-cursor-theme-bin | jump |
+| ttf-firacode-nerd | |
 
 ## Config file (mhc.conf)
 
