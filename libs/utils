@@ -15,7 +15,7 @@ function GET_CONFIGS() {
       to_copy+=("$line")
       ;;
     "[install_programs]")
-      line="${line//\"/}"
+      line="${line//[\(\)\"]/}"
       programs_config["${line//\=*/}"]="${line//*=/}"
       ;;
 
