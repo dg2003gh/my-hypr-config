@@ -76,7 +76,7 @@ Section [install_programs]
 
 The programs that must be installed to customization work awesome.
 
-install - true by default, disable if yoyu don't want to installed programs.
+install - true by default, disable if you don't want to installed programs.
 pacman - list of packages to be installed with pacman package manager.
 aur - list of packages to be installed with aur package manager.
 
