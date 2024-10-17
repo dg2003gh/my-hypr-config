@@ -12,7 +12,7 @@ My Hyprland config on Archlinux. Clone this repo and run 'my_hypr_config' like:
 ## Important dependencies and things to know before start.
 
 You must have oh-my-zsh and some plugins installed!
-Please checkout their website ![oh-my-zsh website](https://ohmyz.sh/)
+Please checkout their website [oh-my-zsh website](https://ohmyz.sh/)
 
 Plugins:
 
