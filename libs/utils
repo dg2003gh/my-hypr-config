@@ -18,7 +18,6 @@ function GET_CONFIGS() {
       line="${line//[\(\)\"]/}"
       programs_config["${line//\=*/}"]="${line//*=/}"
       ;;
-
     esac
   done <"$file"
 }

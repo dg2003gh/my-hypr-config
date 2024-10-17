@@ -6,7 +6,23 @@ My Hyprland config on Archlinux. Clone this repo and run 'my_hypr_config' like:
 > You must be in Arch based distro and have a Aur package manager.
 
 > [!CAUTION]
-> Automated programs installation only supports yay and pikaur.
+> In order to use Automated programs installation, check if your AUR package manager is on mhc.conf scan list.
+> Currently only pikaur, yay and paru is on the list.
+
+## Dependencies [Important]
+
+You must have oh-my-zsh and some plugins installed!
+Please checkout their website ![oh-my-zsh website](https://ohmyz.sh/)
+
+Plugins:
+
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
+```
 
 You can see here all the dependencies if you want to install them manually:
 | Dependecies |
@@ -17,6 +33,7 @@ You can see here all the dependencies if you want to install them manually:
 | curl|
 | swaync |
 | rofi-wayland |
+| greetd|
 | tuigreet |
 | nvim |
 | thunar |
